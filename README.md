@@ -1,4 +1,4 @@
-# 🦸 Herotopia - Educational Chatbot & Digital Library
+# EduField TN - The Outlying Assistance Station (DEMO)
 
 A complete offline educational platform with AI-powered chatbot and digital library, built with Flask and VLLM.
 
