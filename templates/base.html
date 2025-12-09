@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Herotopia - Educational Chatbot & Library{% endblock %}</title>
+    
+    <!-- Bootstrap Offline CSS -->
+    <link rel="stylesheet" href="{{ url_for('serve_static', filename='lib/bootstrap-5.3.0/css/bootstrap.min.css') }}">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="{{ url_for('serve_static', filename='css/style.css') }}">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <span class="brand-icon">🦸</span> Herotopia
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#chatbot-section" onclick="showChatbot()">
+                            💬 Chatbot
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#library-section" onclick="showLibrary()">
+                            📚 Digital Library
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about-section" onclick="showAbout()">
+                            ℹ️ About
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
+                            🌐 <span id="current-language">English</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="setLanguage('en')">🇬🇧 English</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setLanguage('ar')">🇸🇦 العربية</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setLanguage('fr')">🇫🇷 Français</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <!-- Bootstrap Offline JS -->
+    <script src="{{ url_for('serve_static', filename='lib/bootstrap-5.3.0/js/bootstrap.bundle.min.js') }}"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="{{ url_for('serve_static', filename='js/utils.js') }}"></script>
+    <script src="{{ url_for('serve_static', filename='js/chat.js') }}"></script>
+    <script src="{{ url_for('serve_static', filename='js/library.js') }}"></script>
+    <script src="{{ url_for('serve_static', filename='js/main.js') }}"></script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
